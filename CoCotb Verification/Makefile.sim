@@ -1,0 +1,14 @@
+SIM ?= icarus
+TOPLEVEL = FFT_2_2_top
+MODULE = testbench
+
+VERILOG_SOURCES  = $(PWD)/FFT_2_2_top.v
+VERILOG_SOURCES += $(PWD)/control_unit.v
+VERILOG_SOURCES += $(PWD)/synch_counter.v
+VERILOG_SOURCES += $(PWD)/shift_reg.v
+VERILOG_SOURCES += $(PWD)/BF_1.v
+VERILOG_SOURCES += $(PWD)/BF_2.v
+VERILOG_SOURCES += $(PWD)/twiddle_gen.v
+VERILOG_SOURCES += $(PWD)/cplx_multiplier.v
+
+include $(shell cocotb-config --makefiles)/Makefile.sim

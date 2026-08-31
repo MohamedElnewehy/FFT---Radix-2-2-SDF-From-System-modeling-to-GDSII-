@@ -1,0 +1,566 @@
+[2026-08-22 21:25:55 UTC] chmod +x run.bash; sed -i -e 's/\r//g' run.bash; ./run.bash  
+rm -f results.xml
+make -f Makefile.sim results.xml
+make[1]: Entering directory `/home/runner'
+mkdir -p sim_build
+/usr/local/bin/iverilog -o sim_build/sim.vvp -D COCOTB_SIM=1 -s FFT_2_2_top -f sim_build/cmds.f -g2012   /home/runner/FFT_2_2_top.v /home/runner/control_unit.v /home/runner/synch_counter.v /home/runner/shift_reg.v /home/runner/BF_1.v /home/runner/BF_2.v /home/runner/twiddle_gen.v /home/runner/cplx_multiplier.v
+rm -f results.xml
+MODULE=testbench TESTCASE= TOPLEVEL=FFT_2_2_top TOPLEVEL_LANG=verilog \
+         /usr/local/bin/vvp -M /usr/local/lib64/python3.6/site-packages/cocotb/libs -m libcocotbvpi_icarus   sim_build/sim.vvp 
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:78   in set_program_name_in_venv        Did not detect Python virtual environment. Using system-wide Python interpreter
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:101  in gpi_print_registered_impl       VPI registered
+     0.00ns INFO     cocotb                             Running on Icarus Verilog version 12.0 (stable)
+     0.00ns INFO     cocotb                             Running tests with cocotb v1.8.1 from /usr/local/lib64/python3.6/site-packages/cocotb
+     0.00ns INFO     cocotb                             Seeding Python random module with 1787433965
+     0.00ns INFO     cocotb.regression                  pytest not found, install it to enable better AssertionError messages
+Collecting numpy<1.20
+  Downloading https://files.pythonhosted.org/packages/45/b2/6c7545bb7a38754d63048c7696804a0d947328125d81bf12beaa692c3ae3/numpy-1.19.5-cp36-cp36m-manylinux1_x86_64.whl (13.4MB)
+Installing collected packages: numpy
+Successfully installed numpy-1.19.5
+NumPy not found. Installing it on the fly...
+NumPy successfully installed!
+     0.00ns INFO     cocotb.regression                  Found test testbench.test_fft_random
+     0.00ns INFO     cocotb.regression                  running test_fft_random (1/1)
+    40.00ns INFO     cocotb.FFT_2_2_top                 Driving 6 directed + 500 random frames = 506 total (seed=random/unfixed)...
+    40.00ns INFO     cocotb.FFT_2_2_top                    ... 0/506 frames driven
+  8040.00ns INFO     cocotb.FFT_2_2_top                    ... 50/506 frames driven
+ 16040.00ns INFO     cocotb.FFT_2_2_top                    ... 100/506 frames driven
+ 24040.00ns INFO     cocotb.FFT_2_2_top                    ... 150/506 frames driven
+ 32040.00ns INFO     cocotb.FFT_2_2_top                    ... 200/506 frames driven
+ 40040.00ns INFO     cocotb.FFT_2_2_top                    ... 250/506 frames driven
+ 48040.00ns INFO     cocotb.FFT_2_2_top                    ... 300/506 frames driven
+ 56040.00ns INFO     cocotb.FFT_2_2_top                    ... 350/506 frames driven
+ 64040.00ns INFO     cocotb.FFT_2_2_top                    ... 400/506 frames driven
+ 72040.00ns INFO     cocotb.FFT_2_2_top                    ... 450/506 frames driven
+ 80040.00ns INFO     cocotb.FFT_2_2_top                    ... 500/506 frames driven
+ 81010.00ns INFO     cocotb.FFT_2_2_top                 All 506 frames driven. Flushing pipeline...
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Flush complete: collected 8096/8096 output samples.
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 1/506 [DIRECTED] : PASS | SQNR=57.76 dB | MaxErr=0.011049
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 2/506 [DIRECTED] : PASS | SQNR=61.44 dB | MaxErr=0.005524
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 3/506 [DIRECTED] : PASS | SQNR=100.00 dB | MaxErr=0.005524
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 4/506 [DIRECTED] : PASS | SQNR=59.22 dB | MaxErr=0.007812
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 5/506 [DIRECTED] : PASS | SQNR=59.22 dB | MaxErr=0.007812
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 6/506 [DIRECTED] : PASS | SQNR=59.22 dB | MaxErr=0.005524
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 7/506 [ RANDOM ] : PASS | SQNR=55.30 dB | MaxErr=0.006115
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 8/506 [ RANDOM ] : PASS | SQNR=54.42 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 9/506 [ RANDOM ] : PASS | SQNR=54.97 dB | MaxErr=0.005803
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 10/506 [ RANDOM ] : PASS | SQNR=55.27 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 11/506 [ RANDOM ] : PASS | SQNR=55.60 dB | MaxErr=0.005962
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 12/506 [ RANDOM ] : PASS | SQNR=55.81 dB | MaxErr=0.005449
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 13/506 [ RANDOM ] : PASS | SQNR=56.17 dB | MaxErr=0.005524
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 14/506 [ RANDOM ] : PASS | SQNR=54.21 dB | MaxErr=0.006592
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 15/506 [ RANDOM ] : PASS | SQNR=54.82 dB | MaxErr=0.006096
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 16/506 [ RANDOM ] : PASS | SQNR=54.76 dB | MaxErr=0.005694
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 17/506 [ RANDOM ] : PASS | SQNR=55.18 dB | MaxErr=0.005627
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 18/506 [ RANDOM ] : PASS | SQNR=54.91 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 19/506 [ RANDOM ] : PASS | SQNR=54.88 dB | MaxErr=0.005792
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 20/506 [ RANDOM ] : PASS | SQNR=55.80 dB | MaxErr=0.005596
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 21/506 [ RANDOM ] : PASS | SQNR=56.40 dB | MaxErr=0.005969
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 22/506 [ RANDOM ] : PASS | SQNR=54.42 dB | MaxErr=0.006271
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 23/506 [ RANDOM ] : PASS | SQNR=55.63 dB | MaxErr=0.005674
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 24/506 [ RANDOM ] : PASS | SQNR=54.66 dB | MaxErr=0.006198
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 25/506 [ RANDOM ] : PASS | SQNR=55.30 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 26/506 [ RANDOM ] : PASS | SQNR=53.76 dB | MaxErr=0.007406
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 27/506 [ RANDOM ] : PASS | SQNR=55.68 dB | MaxErr=0.006431
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 28/506 [ RANDOM ] : PASS | SQNR=56.10 dB | MaxErr=0.005706
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 29/506 [ RANDOM ] : PASS | SQNR=55.19 dB | MaxErr=0.007140
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 30/506 [ RANDOM ] : PASS | SQNR=54.54 dB | MaxErr=0.006371
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 31/506 [ RANDOM ] : PASS | SQNR=54.29 dB | MaxErr=0.006693
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 32/506 [ RANDOM ] : PASS | SQNR=56.11 dB | MaxErr=0.006197
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 33/506 [ RANDOM ] : PASS | SQNR=54.82 dB | MaxErr=0.006493
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 34/506 [ RANDOM ] : PASS | SQNR=55.01 dB | MaxErr=0.005610
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 35/506 [ RANDOM ] : PASS | SQNR=54.55 dB | MaxErr=0.007042
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 36/506 [ RANDOM ] : PASS | SQNR=55.18 dB | MaxErr=0.006126
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 37/506 [ RANDOM ] : PASS | SQNR=55.41 dB | MaxErr=0.005642
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 38/506 [ RANDOM ] : PASS | SQNR=54.94 dB | MaxErr=0.006111
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 39/506 [ RANDOM ] : PASS | SQNR=55.33 dB | MaxErr=0.006630
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 40/506 [ RANDOM ] : PASS | SQNR=55.50 dB | MaxErr=0.005598
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 41/506 [ RANDOM ] : PASS | SQNR=54.75 dB | MaxErr=0.006369
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 42/506 [ RANDOM ] : PASS | SQNR=53.99 dB | MaxErr=0.005706
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 43/506 [ RANDOM ] : PASS | SQNR=54.43 dB | MaxErr=0.006147
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 44/506 [ RANDOM ] : PASS | SQNR=54.66 dB | MaxErr=0.006328
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 45/506 [ RANDOM ] : PASS | SQNR=54.57 dB | MaxErr=0.005821
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 46/506 [ RANDOM ] : PASS | SQNR=55.89 dB | MaxErr=0.005854
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 47/506 [ RANDOM ] : PASS | SQNR=54.94 dB | MaxErr=0.005740
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 48/506 [ RANDOM ] : PASS | SQNR=52.71 dB | MaxErr=0.006243
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 49/506 [ RANDOM ] : PASS | SQNR=53.48 dB | MaxErr=0.006504
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 50/506 [ RANDOM ] : PASS | SQNR=55.21 dB | MaxErr=0.006146
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 51/506 [ RANDOM ] : PASS | SQNR=55.57 dB | MaxErr=0.005566
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 52/506 [ RANDOM ] : PASS | SQNR=54.37 dB | MaxErr=0.006567
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 53/506 [ RANDOM ] : PASS | SQNR=55.25 dB | MaxErr=0.006807
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 54/506 [ RANDOM ] : PASS | SQNR=54.57 dB | MaxErr=0.006107
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 55/506 [ RANDOM ] : PASS | SQNR=56.07 dB | MaxErr=0.006329
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 56/506 [ RANDOM ] : PASS | SQNR=55.24 dB | MaxErr=0.005861
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 57/506 [ RANDOM ] : PASS | SQNR=55.02 dB | MaxErr=0.006905
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 58/506 [ RANDOM ] : PASS | SQNR=54.87 dB | MaxErr=0.006345
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 59/506 [ RANDOM ] : PASS | SQNR=55.49 dB | MaxErr=0.005902
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 60/506 [ RANDOM ] : PASS | SQNR=55.87 dB | MaxErr=0.005787
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 61/506 [ RANDOM ] : PASS | SQNR=55.34 dB | MaxErr=0.006065
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 62/506 [ RANDOM ] : PASS | SQNR=54.52 dB | MaxErr=0.006749
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 63/506 [ RANDOM ] : PASS | SQNR=54.59 dB | MaxErr=0.006386
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 64/506 [ RANDOM ] : PASS | SQNR=54.85 dB | MaxErr=0.005990
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 65/506 [ RANDOM ] : PASS | SQNR=55.34 dB | MaxErr=0.006905
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 66/506 [ RANDOM ] : PASS | SQNR=56.60 dB | MaxErr=0.006648
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 67/506 [ RANDOM ] : PASS | SQNR=56.51 dB | MaxErr=0.005524
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 68/506 [ RANDOM ] : PASS | SQNR=55.28 dB | MaxErr=0.006746
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 69/506 [ RANDOM ] : PASS | SQNR=55.23 dB | MaxErr=0.006597
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 70/506 [ RANDOM ] : PASS | SQNR=55.66 dB | MaxErr=0.006381
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 71/506 [ RANDOM ] : PASS | SQNR=54.74 dB | MaxErr=0.006134
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 72/506 [ RANDOM ] : PASS | SQNR=54.77 dB | MaxErr=0.005794
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 73/506 [ RANDOM ] : PASS | SQNR=54.51 dB | MaxErr=0.005730
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 74/506 [ RANDOM ] : PASS | SQNR=55.52 dB | MaxErr=0.005850
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 75/506 [ RANDOM ] : PASS | SQNR=54.70 dB | MaxErr=0.006474
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 76/506 [ RANDOM ] : PASS | SQNR=56.41 dB | MaxErr=0.005524
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 77/506 [ RANDOM ] : PASS | SQNR=55.03 dB | MaxErr=0.006342
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 78/506 [ RANDOM ] : PASS | SQNR=56.17 dB | MaxErr=0.005524
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 79/506 [ RANDOM ] : PASS | SQNR=54.85 dB | MaxErr=0.006905
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 80/506 [ RANDOM ] : PASS | SQNR=55.49 dB | MaxErr=0.006357
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 81/506 [ RANDOM ] : PASS | SQNR=53.79 dB | MaxErr=0.006134
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 82/506 [ RANDOM ] : PASS | SQNR=53.89 dB | MaxErr=0.006306
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 83/506 [ RANDOM ] : PASS | SQNR=54.19 dB | MaxErr=0.006464
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 84/506 [ RANDOM ] : PASS | SQNR=56.13 dB | MaxErr=0.005679
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 85/506 [ RANDOM ] : PASS | SQNR=55.22 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 86/506 [ RANDOM ] : PASS | SQNR=55.46 dB | MaxErr=0.007042
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 87/506 [ RANDOM ] : PASS | SQNR=55.45 dB | MaxErr=0.006398
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 88/506 [ RANDOM ] : PASS | SQNR=54.83 dB | MaxErr=0.006151
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 89/506 [ RANDOM ] : PASS | SQNR=54.35 dB | MaxErr=0.006545
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 90/506 [ RANDOM ] : PASS | SQNR=53.37 dB | MaxErr=0.006439
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 91/506 [ RANDOM ] : PASS | SQNR=53.80 dB | MaxErr=0.006309
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 92/506 [ RANDOM ] : PASS | SQNR=54.62 dB | MaxErr=0.005625
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 93/506 [ RANDOM ] : PASS | SQNR=53.96 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 94/506 [ RANDOM ] : PASS | SQNR=55.35 dB | MaxErr=0.005858
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 95/506 [ RANDOM ] : PASS | SQNR=55.19 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 96/506 [ RANDOM ] : PASS | SQNR=55.39 dB | MaxErr=0.005812
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 97/506 [ RANDOM ] : PASS | SQNR=53.64 dB | MaxErr=0.006284
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 98/506 [ RANDOM ] : PASS | SQNR=55.76 dB | MaxErr=0.006034
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 99/506 [ RANDOM ] : PASS | SQNR=55.54 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 100/506 [ RANDOM ] : PASS | SQNR=54.76 dB | MaxErr=0.006158
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 101/506 [ RANDOM ] : PASS | SQNR=55.02 dB | MaxErr=0.005747
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 102/506 [ RANDOM ] : PASS | SQNR=55.35 dB | MaxErr=0.006417
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 103/506 [ RANDOM ] : PASS | SQNR=55.49 dB | MaxErr=0.006313
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 104/506 [ RANDOM ] : PASS | SQNR=55.59 dB | MaxErr=0.005524
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 105/506 [ RANDOM ] : PASS | SQNR=56.71 dB | MaxErr=0.005722
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 106/506 [ RANDOM ] : PASS | SQNR=55.31 dB | MaxErr=0.005967
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 107/506 [ RANDOM ] : PASS | SQNR=55.40 dB | MaxErr=0.005930
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 108/506 [ RANDOM ] : PASS | SQNR=55.93 dB | MaxErr=0.005711
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 109/506 [ RANDOM ] : PASS | SQNR=55.12 dB | MaxErr=0.005524
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 110/506 [ RANDOM ] : PASS | SQNR=55.08 dB | MaxErr=0.006351
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 111/506 [ RANDOM ] : PASS | SQNR=55.40 dB | MaxErr=0.006905
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 112/506 [ RANDOM ] : PASS | SQNR=54.72 dB | MaxErr=0.005701
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 113/506 [ RANDOM ] : PASS | SQNR=54.87 dB | MaxErr=0.006865
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 114/506 [ RANDOM ] : PASS | SQNR=54.47 dB | MaxErr=0.005653
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 115/506 [ RANDOM ] : PASS | SQNR=52.85 dB | MaxErr=0.006471
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 116/506 [ RANDOM ] : PASS | SQNR=54.65 dB | MaxErr=0.006776
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 117/506 [ RANDOM ] : PASS | SQNR=55.80 dB | MaxErr=0.005524
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 118/506 [ RANDOM ] : PASS | SQNR=53.89 dB | MaxErr=0.007086
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 119/506 [ RANDOM ] : PASS | SQNR=55.07 dB | MaxErr=0.006617
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 120/506 [ RANDOM ] : PASS | SQNR=55.18 dB | MaxErr=0.005694
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 121/506 [ RANDOM ] : PASS | SQNR=55.56 dB | MaxErr=0.006539
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 122/506 [ RANDOM ] : PASS | SQNR=54.04 dB | MaxErr=0.006548
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 123/506 [ RANDOM ] : PASS | SQNR=55.64 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 124/506 [ RANDOM ] : PASS | SQNR=53.78 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 125/506 [ RANDOM ] : PASS | SQNR=55.60 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 126/506 [ RANDOM ] : PASS | SQNR=54.67 dB | MaxErr=0.006268
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 127/506 [ RANDOM ] : PASS | SQNR=55.52 dB | MaxErr=0.005807
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 128/506 [ RANDOM ] : PASS | SQNR=53.71 dB | MaxErr=0.006296
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 129/506 [ RANDOM ] : PASS | SQNR=54.14 dB | MaxErr=0.006131
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 130/506 [ RANDOM ] : PASS | SQNR=55.08 dB | MaxErr=0.005615
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 131/506 [ RANDOM ] : PASS | SQNR=55.12 dB | MaxErr=0.005832
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 132/506 [ RANDOM ] : PASS | SQNR=55.52 dB | MaxErr=0.005651
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 133/506 [ RANDOM ] : PASS | SQNR=55.87 dB | MaxErr=0.005524
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 134/506 [ RANDOM ] : PASS | SQNR=55.12 dB | MaxErr=0.005804
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 135/506 [ RANDOM ] : PASS | SQNR=54.87 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 136/506 [ RANDOM ] : PASS | SQNR=54.41 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 137/506 [ RANDOM ] : PASS | SQNR=55.41 dB | MaxErr=0.006180
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 138/506 [ RANDOM ] : PASS | SQNR=54.91 dB | MaxErr=0.005849
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 139/506 [ RANDOM ] : PASS | SQNR=55.56 dB | MaxErr=0.006364
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 140/506 [ RANDOM ] : PASS | SQNR=54.50 dB | MaxErr=0.006313
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 141/506 [ RANDOM ] : PASS | SQNR=54.63 dB | MaxErr=0.005962
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 142/506 [ RANDOM ] : PASS | SQNR=54.93 dB | MaxErr=0.005630
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 143/506 [ RANDOM ] : PASS | SQNR=54.79 dB | MaxErr=0.006905
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 144/506 [ RANDOM ] : PASS | SQNR=54.70 dB | MaxErr=0.005970
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 145/506 [ RANDOM ] : PASS | SQNR=56.63 dB | MaxErr=0.005063
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 146/506 [ RANDOM ] : PASS | SQNR=54.50 dB | MaxErr=0.006543
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 147/506 [ RANDOM ] : PASS | SQNR=55.13 dB | MaxErr=0.005903
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 148/506 [ RANDOM ] : PASS | SQNR=56.09 dB | MaxErr=0.005563
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 149/506 [ RANDOM ] : PASS | SQNR=54.44 dB | MaxErr=0.006903
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 150/506 [ RANDOM ] : PASS | SQNR=55.29 dB | MaxErr=0.005771
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 151/506 [ RANDOM ] : PASS | SQNR=55.16 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 152/506 [ RANDOM ] : PASS | SQNR=54.53 dB | MaxErr=0.005733
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 153/506 [ RANDOM ] : PASS | SQNR=55.11 dB | MaxErr=0.005673
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 154/506 [ RANDOM ] : PASS | SQNR=54.62 dB | MaxErr=0.006120
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 155/506 [ RANDOM ] : PASS | SQNR=55.64 dB | MaxErr=0.005662
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 156/506 [ RANDOM ] : PASS | SQNR=55.47 dB | MaxErr=0.006436
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 157/506 [ RANDOM ] : PASS | SQNR=55.39 dB | MaxErr=0.006202
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 158/506 [ RANDOM ] : PASS | SQNR=55.46 dB | MaxErr=0.006239
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 159/506 [ RANDOM ] : PASS | SQNR=55.88 dB | MaxErr=0.005555
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 160/506 [ RANDOM ] : PASS | SQNR=54.23 dB | MaxErr=0.006828
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 161/506 [ RANDOM ] : PASS | SQNR=55.54 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 162/506 [ RANDOM ] : PASS | SQNR=55.68 dB | MaxErr=0.006544
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 163/506 [ RANDOM ] : PASS | SQNR=55.50 dB | MaxErr=0.006108
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 164/506 [ RANDOM ] : PASS | SQNR=54.73 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 165/506 [ RANDOM ] : PASS | SQNR=55.36 dB | MaxErr=0.006826
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 166/506 [ RANDOM ] : PASS | SQNR=55.06 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 167/506 [ RANDOM ] : PASS | SQNR=56.07 dB | MaxErr=0.005994
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 168/506 [ RANDOM ] : PASS | SQNR=57.09 dB | MaxErr=0.005320
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 169/506 [ RANDOM ] : PASS | SQNR=54.43 dB | MaxErr=0.006216
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 170/506 [ RANDOM ] : PASS | SQNR=55.04 dB | MaxErr=0.007627
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 171/506 [ RANDOM ] : PASS | SQNR=54.86 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 172/506 [ RANDOM ] : PASS | SQNR=54.30 dB | MaxErr=0.005723
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 173/506 [ RANDOM ] : PASS | SQNR=55.62 dB | MaxErr=0.006431
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 174/506 [ RANDOM ] : PASS | SQNR=55.47 dB | MaxErr=0.005805
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 175/506 [ RANDOM ] : PASS | SQNR=55.75 dB | MaxErr=0.006475
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 176/506 [ RANDOM ] : PASS | SQNR=54.61 dB | MaxErr=0.006102
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 177/506 [ RANDOM ] : PASS | SQNR=55.43 dB | MaxErr=0.005524
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 178/506 [ RANDOM ] : PASS | SQNR=55.85 dB | MaxErr=0.005759
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 179/506 [ RANDOM ] : PASS | SQNR=54.56 dB | MaxErr=0.005406
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 180/506 [ RANDOM ] : PASS | SQNR=54.39 dB | MaxErr=0.006765
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 181/506 [ RANDOM ] : PASS | SQNR=56.91 dB | MaxErr=0.005547
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 182/506 [ RANDOM ] : PASS | SQNR=55.20 dB | MaxErr=0.005848
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 183/506 [ RANDOM ] : PASS | SQNR=54.14 dB | MaxErr=0.006905
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 184/506 [ RANDOM ] : PASS | SQNR=55.20 dB | MaxErr=0.006281
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 185/506 [ RANDOM ] : PASS | SQNR=56.30 dB | MaxErr=0.005853
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 186/506 [ RANDOM ] : PASS | SQNR=54.89 dB | MaxErr=0.006414
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 187/506 [ RANDOM ] : PASS | SQNR=54.48 dB | MaxErr=0.006487
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 188/506 [ RANDOM ] : PASS | SQNR=54.63 dB | MaxErr=0.005909
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 189/506 [ RANDOM ] : PASS | SQNR=54.85 dB | MaxErr=0.006642
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 190/506 [ RANDOM ] : PASS | SQNR=54.36 dB | MaxErr=0.006008
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 191/506 [ RANDOM ] : PASS | SQNR=54.58 dB | MaxErr=0.006112
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 192/506 [ RANDOM ] : PASS | SQNR=54.27 dB | MaxErr=0.007547
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 193/506 [ RANDOM ] : PASS | SQNR=54.72 dB | MaxErr=0.006477
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 194/506 [ RANDOM ] : PASS | SQNR=54.84 dB | MaxErr=0.006908
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 195/506 [ RANDOM ] : PASS | SQNR=53.94 dB | MaxErr=0.005693
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 196/506 [ RANDOM ] : PASS | SQNR=54.93 dB | MaxErr=0.006436
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 197/506 [ RANDOM ] : PASS | SQNR=55.58 dB | MaxErr=0.007042
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 198/506 [ RANDOM ] : PASS | SQNR=56.38 dB | MaxErr=0.006905
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 199/506 [ RANDOM ] : PASS | SQNR=54.44 dB | MaxErr=0.006077
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 200/506 [ RANDOM ] : PASS | SQNR=55.45 dB | MaxErr=0.005922
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 201/506 [ RANDOM ] : PASS | SQNR=53.73 dB | MaxErr=0.005680
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 202/506 [ RANDOM ] : PASS | SQNR=54.55 dB | MaxErr=0.006364
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 203/506 [ RANDOM ] : PASS | SQNR=55.92 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 204/506 [ RANDOM ] : PASS | SQNR=55.29 dB | MaxErr=0.005563
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 205/506 [ RANDOM ] : PASS | SQNR=54.00 dB | MaxErr=0.006781
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 206/506 [ RANDOM ] : PASS | SQNR=55.54 dB | MaxErr=0.006323
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 207/506 [ RANDOM ] : PASS | SQNR=53.91 dB | MaxErr=0.006933
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 208/506 [ RANDOM ] : PASS | SQNR=55.96 dB | MaxErr=0.005623
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 209/506 [ RANDOM ] : PASS | SQNR=54.87 dB | MaxErr=0.007002
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 210/506 [ RANDOM ] : PASS | SQNR=54.96 dB | MaxErr=0.005658
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 211/506 [ RANDOM ] : PASS | SQNR=55.84 dB | MaxErr=0.006145
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 212/506 [ RANDOM ] : PASS | SQNR=55.44 dB | MaxErr=0.005966
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 213/506 [ RANDOM ] : PASS | SQNR=55.27 dB | MaxErr=0.006371
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 214/506 [ RANDOM ] : PASS | SQNR=55.49 dB | MaxErr=0.006101
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 215/506 [ RANDOM ] : PASS | SQNR=55.09 dB | MaxErr=0.006299
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 216/506 [ RANDOM ] : PASS | SQNR=54.21 dB | MaxErr=0.006905
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 217/506 [ RANDOM ] : PASS | SQNR=55.26 dB | MaxErr=0.005561
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 218/506 [ RANDOM ] : PASS | SQNR=56.90 dB | MaxErr=0.005524
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 219/506 [ RANDOM ] : PASS | SQNR=55.22 dB | MaxErr=0.006073
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 220/506 [ RANDOM ] : PASS | SQNR=53.27 dB | MaxErr=0.006057
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 221/506 [ RANDOM ] : PASS | SQNR=56.14 dB | MaxErr=0.005994
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 222/506 [ RANDOM ] : PASS | SQNR=54.83 dB | MaxErr=0.006922
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 223/506 [ RANDOM ] : PASS | SQNR=54.63 dB | MaxErr=0.006237
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 224/506 [ RANDOM ] : PASS | SQNR=54.84 dB | MaxErr=0.006398
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 225/506 [ RANDOM ] : PASS | SQNR=54.89 dB | MaxErr=0.006301
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 226/506 [ RANDOM ] : PASS | SQNR=54.96 dB | MaxErr=0.005551
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 227/506 [ RANDOM ] : PASS | SQNR=55.50 dB | MaxErr=0.005765
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 228/506 [ RANDOM ] : PASS | SQNR=55.28 dB | MaxErr=0.005859
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 229/506 [ RANDOM ] : PASS | SQNR=55.59 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 230/506 [ RANDOM ] : PASS | SQNR=54.77 dB | MaxErr=0.006429
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 231/506 [ RANDOM ] : PASS | SQNR=55.81 dB | MaxErr=0.005524
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 232/506 [ RANDOM ] : PASS | SQNR=54.53 dB | MaxErr=0.006905
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 233/506 [ RANDOM ] : PASS | SQNR=55.53 dB | MaxErr=0.005570
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 234/506 [ RANDOM ] : PASS | SQNR=54.99 dB | MaxErr=0.005733
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 235/506 [ RANDOM ] : PASS | SQNR=55.43 dB | MaxErr=0.005826
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 236/506 [ RANDOM ] : PASS | SQNR=54.02 dB | MaxErr=0.006289
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 237/506 [ RANDOM ] : PASS | SQNR=55.31 dB | MaxErr=0.006032
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 238/506 [ RANDOM ] : PASS | SQNR=54.36 dB | MaxErr=0.005524
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 239/506 [ RANDOM ] : PASS | SQNR=54.07 dB | MaxErr=0.006298
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 240/506 [ RANDOM ] : PASS | SQNR=54.20 dB | MaxErr=0.006445
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 241/506 [ RANDOM ] : PASS | SQNR=54.94 dB | MaxErr=0.006437
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 242/506 [ RANDOM ] : PASS | SQNR=54.24 dB | MaxErr=0.006736
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 243/506 [ RANDOM ] : PASS | SQNR=54.83 dB | MaxErr=0.005930
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 244/506 [ RANDOM ] : PASS | SQNR=55.68 dB | MaxErr=0.006410
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 245/506 [ RANDOM ] : PASS | SQNR=53.94 dB | MaxErr=0.006344
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 246/506 [ RANDOM ] : PASS | SQNR=55.42 dB | MaxErr=0.006261
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 247/506 [ RANDOM ] : PASS | SQNR=55.43 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 248/506 [ RANDOM ] : PASS | SQNR=56.33 dB | MaxErr=0.005892
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 249/506 [ RANDOM ] : PASS | SQNR=55.60 dB | MaxErr=0.005299
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 250/506 [ RANDOM ] : PASS | SQNR=55.68 dB | MaxErr=0.005524
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 251/506 [ RANDOM ] : PASS | SQNR=54.40 dB | MaxErr=0.006250
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 252/506 [ RANDOM ] : PASS | SQNR=56.28 dB | MaxErr=0.005524
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 253/506 [ RANDOM ] : PASS | SQNR=55.06 dB | MaxErr=0.006144
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 254/506 [ RANDOM ] : PASS | SQNR=54.79 dB | MaxErr=0.007627
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 255/506 [ RANDOM ] : PASS | SQNR=54.73 dB | MaxErr=0.005722
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 256/506 [ RANDOM ] : PASS | SQNR=55.79 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 257/506 [ RANDOM ] : PASS | SQNR=55.40 dB | MaxErr=0.006905
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 258/506 [ RANDOM ] : PASS | SQNR=54.45 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 259/506 [ RANDOM ] : PASS | SQNR=55.16 dB | MaxErr=0.005754
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 260/506 [ RANDOM ] : PASS | SQNR=56.85 dB | MaxErr=0.005524
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 261/506 [ RANDOM ] : PASS | SQNR=55.55 dB | MaxErr=0.005524
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 262/506 [ RANDOM ] : PASS | SQNR=55.40 dB | MaxErr=0.005524
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 263/506 [ RANDOM ] : PASS | SQNR=54.06 dB | MaxErr=0.006601
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 264/506 [ RANDOM ] : PASS | SQNR=54.66 dB | MaxErr=0.006382
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 265/506 [ RANDOM ] : PASS | SQNR=55.68 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 266/506 [ RANDOM ] : PASS | SQNR=54.36 dB | MaxErr=0.006029
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 267/506 [ RANDOM ] : PASS | SQNR=54.78 dB | MaxErr=0.006632
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 268/506 [ RANDOM ] : PASS | SQNR=55.61 dB | MaxErr=0.005803
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 269/506 [ RANDOM ] : PASS | SQNR=54.13 dB | MaxErr=0.006656
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 270/506 [ RANDOM ] : PASS | SQNR=55.97 dB | MaxErr=0.005333
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 271/506 [ RANDOM ] : PASS | SQNR=53.14 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 272/506 [ RANDOM ] : PASS | SQNR=55.12 dB | MaxErr=0.006653
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 273/506 [ RANDOM ] : PASS | SQNR=54.48 dB | MaxErr=0.006747
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 274/506 [ RANDOM ] : PASS | SQNR=54.09 dB | MaxErr=0.006079
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 275/506 [ RANDOM ] : PASS | SQNR=55.64 dB | MaxErr=0.006262
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 276/506 [ RANDOM ] : PASS | SQNR=54.08 dB | MaxErr=0.006069
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 277/506 [ RANDOM ] : PASS | SQNR=54.27 dB | MaxErr=0.005877
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 278/506 [ RANDOM ] : PASS | SQNR=55.20 dB | MaxErr=0.005645
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 279/506 [ RANDOM ] : PASS | SQNR=55.13 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 280/506 [ RANDOM ] : PASS | SQNR=53.90 dB | MaxErr=0.005928
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 281/506 [ RANDOM ] : PASS | SQNR=56.09 dB | MaxErr=0.006447
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 282/506 [ RANDOM ] : PASS | SQNR=55.81 dB | MaxErr=0.006285
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 283/506 [ RANDOM ] : PASS | SQNR=55.67 dB | MaxErr=0.006107
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 284/506 [ RANDOM ] : PASS | SQNR=54.62 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 285/506 [ RANDOM ] : PASS | SQNR=54.48 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 286/506 [ RANDOM ] : PASS | SQNR=54.21 dB | MaxErr=0.006206
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 287/506 [ RANDOM ] : PASS | SQNR=56.21 dB | MaxErr=0.005796
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 288/506 [ RANDOM ] : PASS | SQNR=56.03 dB | MaxErr=0.006406
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 289/506 [ RANDOM ] : PASS | SQNR=54.94 dB | MaxErr=0.007042
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 290/506 [ RANDOM ] : PASS | SQNR=54.83 dB | MaxErr=0.006846
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 291/506 [ RANDOM ] : PASS | SQNR=55.68 dB | MaxErr=0.005965
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 292/506 [ RANDOM ] : PASS | SQNR=55.15 dB | MaxErr=0.006294
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 293/506 [ RANDOM ] : PASS | SQNR=56.14 dB | MaxErr=0.006002
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 294/506 [ RANDOM ] : PASS | SQNR=55.59 dB | MaxErr=0.005788
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 295/506 [ RANDOM ] : PASS | SQNR=55.24 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 296/506 [ RANDOM ] : PASS | SQNR=55.45 dB | MaxErr=0.006349
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 297/506 [ RANDOM ] : PASS | SQNR=55.56 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 298/506 [ RANDOM ] : PASS | SQNR=55.91 dB | MaxErr=0.005955
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 299/506 [ RANDOM ] : PASS | SQNR=55.59 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 300/506 [ RANDOM ] : PASS | SQNR=54.78 dB | MaxErr=0.007042
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 301/506 [ RANDOM ] : PASS | SQNR=53.99 dB | MaxErr=0.005967
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 302/506 [ RANDOM ] : PASS | SQNR=54.39 dB | MaxErr=0.005586
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 303/506 [ RANDOM ] : PASS | SQNR=54.80 dB | MaxErr=0.006011
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 304/506 [ RANDOM ] : PASS | SQNR=54.88 dB | MaxErr=0.006694
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 305/506 [ RANDOM ] : PASS | SQNR=55.04 dB | MaxErr=0.005694
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 306/506 [ RANDOM ] : PASS | SQNR=55.22 dB | MaxErr=0.005855
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 307/506 [ RANDOM ] : PASS | SQNR=54.76 dB | MaxErr=0.006063
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 308/506 [ RANDOM ] : PASS | SQNR=54.75 dB | MaxErr=0.005648
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 309/506 [ RANDOM ] : PASS | SQNR=55.86 dB | MaxErr=0.006054
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 310/506 [ RANDOM ] : PASS | SQNR=54.50 dB | MaxErr=0.005524
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 311/506 [ RANDOM ] : PASS | SQNR=53.58 dB | MaxErr=0.006576
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 312/506 [ RANDOM ] : PASS | SQNR=55.22 dB | MaxErr=0.006260
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 313/506 [ RANDOM ] : PASS | SQNR=54.59 dB | MaxErr=0.006097
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 314/506 [ RANDOM ] : PASS | SQNR=53.36 dB | MaxErr=0.006560
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 315/506 [ RANDOM ] : PASS | SQNR=56.44 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 316/506 [ RANDOM ] : PASS | SQNR=56.31 dB | MaxErr=0.005460
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 317/506 [ RANDOM ] : PASS | SQNR=55.89 dB | MaxErr=0.006195
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 318/506 [ RANDOM ] : PASS | SQNR=54.30 dB | MaxErr=0.005752
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 319/506 [ RANDOM ] : PASS | SQNR=53.36 dB | MaxErr=0.006270
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 320/506 [ RANDOM ] : PASS | SQNR=53.75 dB | MaxErr=0.005813
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 321/506 [ RANDOM ] : PASS | SQNR=54.47 dB | MaxErr=0.007042
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 322/506 [ RANDOM ] : PASS | SQNR=55.69 dB | MaxErr=0.005880
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 323/506 [ RANDOM ] : PASS | SQNR=55.26 dB | MaxErr=0.006097
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 324/506 [ RANDOM ] : PASS | SQNR=54.77 dB | MaxErr=0.006675
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 325/506 [ RANDOM ] : PASS | SQNR=55.36 dB | MaxErr=0.005811
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 326/506 [ RANDOM ] : PASS | SQNR=54.96 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 327/506 [ RANDOM ] : PASS | SQNR=54.74 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 328/506 [ RANDOM ] : PASS | SQNR=56.07 dB | MaxErr=0.006081
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 329/506 [ RANDOM ] : PASS | SQNR=55.71 dB | MaxErr=0.006800
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 330/506 [ RANDOM ] : PASS | SQNR=54.66 dB | MaxErr=0.005524
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 331/506 [ RANDOM ] : PASS | SQNR=54.27 dB | MaxErr=0.006905
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 332/506 [ RANDOM ] : PASS | SQNR=55.79 dB | MaxErr=0.006339
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 333/506 [ RANDOM ] : PASS | SQNR=54.83 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 334/506 [ RANDOM ] : PASS | SQNR=54.65 dB | MaxErr=0.006380
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 335/506 [ RANDOM ] : PASS | SQNR=56.52 dB | MaxErr=0.005465
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 336/506 [ RANDOM ] : PASS | SQNR=53.66 dB | MaxErr=0.006074
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 337/506 [ RANDOM ] : PASS | SQNR=55.14 dB | MaxErr=0.005762
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 338/506 [ RANDOM ] : PASS | SQNR=55.22 dB | MaxErr=0.006187
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 339/506 [ RANDOM ] : PASS | SQNR=56.50 dB | MaxErr=0.005661
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 340/506 [ RANDOM ] : PASS | SQNR=55.31 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 341/506 [ RANDOM ] : PASS | SQNR=54.60 dB | MaxErr=0.006508
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 342/506 [ RANDOM ] : PASS | SQNR=55.87 dB | MaxErr=0.005902
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 343/506 [ RANDOM ] : PASS | SQNR=55.17 dB | MaxErr=0.005572
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 344/506 [ RANDOM ] : PASS | SQNR=55.35 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 345/506 [ RANDOM ] : PASS | SQNR=55.63 dB | MaxErr=0.006143
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 346/506 [ RANDOM ] : PASS | SQNR=54.53 dB | MaxErr=0.006279
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 347/506 [ RANDOM ] : PASS | SQNR=55.87 dB | MaxErr=0.005678
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 348/506 [ RANDOM ] : PASS | SQNR=54.94 dB | MaxErr=0.006541
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 349/506 [ RANDOM ] : PASS | SQNR=54.87 dB | MaxErr=0.005941
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 350/506 [ RANDOM ] : PASS | SQNR=55.26 dB | MaxErr=0.005989
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 351/506 [ RANDOM ] : PASS | SQNR=55.52 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 352/506 [ RANDOM ] : PASS | SQNR=54.16 dB | MaxErr=0.007059
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 353/506 [ RANDOM ] : PASS | SQNR=54.73 dB | MaxErr=0.005763
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 354/506 [ RANDOM ] : PASS | SQNR=54.66 dB | MaxErr=0.005524
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 355/506 [ RANDOM ] : PASS | SQNR=54.95 dB | MaxErr=0.005621
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 356/506 [ RANDOM ] : PASS | SQNR=54.36 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 357/506 [ RANDOM ] : PASS | SQNR=55.41 dB | MaxErr=0.005540
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 358/506 [ RANDOM ] : PASS | SQNR=55.75 dB | MaxErr=0.006325
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 359/506 [ RANDOM ] : PASS | SQNR=55.01 dB | MaxErr=0.005524
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 360/506 [ RANDOM ] : PASS | SQNR=55.00 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 361/506 [ RANDOM ] : PASS | SQNR=56.17 dB | MaxErr=0.005817
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 362/506 [ RANDOM ] : PASS | SQNR=54.54 dB | MaxErr=0.005919
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 363/506 [ RANDOM ] : PASS | SQNR=55.52 dB | MaxErr=0.005551
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 364/506 [ RANDOM ] : PASS | SQNR=53.90 dB | MaxErr=0.006724
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 365/506 [ RANDOM ] : PASS | SQNR=54.30 dB | MaxErr=0.006017
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 366/506 [ RANDOM ] : PASS | SQNR=54.68 dB | MaxErr=0.005986
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 367/506 [ RANDOM ] : PASS | SQNR=54.60 dB | MaxErr=0.005650
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 368/506 [ RANDOM ] : PASS | SQNR=54.24 dB | MaxErr=0.006390
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 369/506 [ RANDOM ] : PASS | SQNR=55.35 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 370/506 [ RANDOM ] : PASS | SQNR=54.77 dB | MaxErr=0.006379
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 371/506 [ RANDOM ] : PASS | SQNR=53.80 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 372/506 [ RANDOM ] : PASS | SQNR=56.81 dB | MaxErr=0.005769
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 373/506 [ RANDOM ] : PASS | SQNR=55.23 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 374/506 [ RANDOM ] : PASS | SQNR=56.20 dB | MaxErr=0.005553
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 375/506 [ RANDOM ] : PASS | SQNR=53.51 dB | MaxErr=0.006142
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 376/506 [ RANDOM ] : PASS | SQNR=54.25 dB | MaxErr=0.006944
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 377/506 [ RANDOM ] : PASS | SQNR=55.18 dB | MaxErr=0.005524
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 378/506 [ RANDOM ] : PASS | SQNR=55.81 dB | MaxErr=0.006491
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 379/506 [ RANDOM ] : PASS | SQNR=55.76 dB | MaxErr=0.006145
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 380/506 [ RANDOM ] : PASS | SQNR=54.56 dB | MaxErr=0.005845
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 381/506 [ RANDOM ] : PASS | SQNR=55.08 dB | MaxErr=0.005559
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 382/506 [ RANDOM ] : PASS | SQNR=55.24 dB | MaxErr=0.007350
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 383/506 [ RANDOM ] : PASS | SQNR=53.74 dB | MaxErr=0.005890
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 384/506 [ RANDOM ] : PASS | SQNR=55.54 dB | MaxErr=0.005871
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 385/506 [ RANDOM ] : PASS | SQNR=56.04 dB | MaxErr=0.006286
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 386/506 [ RANDOM ] : PASS | SQNR=55.66 dB | MaxErr=0.006175
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 387/506 [ RANDOM ] : PASS | SQNR=55.43 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 388/506 [ RANDOM ] : PASS | SQNR=55.59 dB | MaxErr=0.006277
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 389/506 [ RANDOM ] : PASS | SQNR=53.78 dB | MaxErr=0.006450
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 390/506 [ RANDOM ] : PASS | SQNR=55.12 dB | MaxErr=0.005633
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 391/506 [ RANDOM ] : PASS | SQNR=55.02 dB | MaxErr=0.006077
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 392/506 [ RANDOM ] : PASS | SQNR=55.79 dB | MaxErr=0.006029
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 393/506 [ RANDOM ] : PASS | SQNR=55.90 dB | MaxErr=0.006388
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 394/506 [ RANDOM ] : PASS | SQNR=54.88 dB | MaxErr=0.006258
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 395/506 [ RANDOM ] : PASS | SQNR=54.40 dB | MaxErr=0.006905
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 396/506 [ RANDOM ] : PASS | SQNR=55.56 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 397/506 [ RANDOM ] : PASS | SQNR=55.16 dB | MaxErr=0.006283
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 398/506 [ RANDOM ] : PASS | SQNR=54.97 dB | MaxErr=0.006319
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 399/506 [ RANDOM ] : PASS | SQNR=55.70 dB | MaxErr=0.005774
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 400/506 [ RANDOM ] : PASS | SQNR=55.32 dB | MaxErr=0.005923
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 401/506 [ RANDOM ] : PASS | SQNR=54.11 dB | MaxErr=0.006143
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 402/506 [ RANDOM ] : PASS | SQNR=54.61 dB | MaxErr=0.005950
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 403/506 [ RANDOM ] : PASS | SQNR=55.28 dB | MaxErr=0.005728
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 404/506 [ RANDOM ] : PASS | SQNR=55.67 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 405/506 [ RANDOM ] : PASS | SQNR=54.08 dB | MaxErr=0.005564
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 406/506 [ RANDOM ] : PASS | SQNR=55.02 dB | MaxErr=0.005850
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 407/506 [ RANDOM ] : PASS | SQNR=54.73 dB | MaxErr=0.005800
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 408/506 [ RANDOM ] : PASS | SQNR=55.09 dB | MaxErr=0.005601
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 409/506 [ RANDOM ] : PASS | SQNR=55.53 dB | MaxErr=0.006138
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 410/506 [ RANDOM ] : PASS | SQNR=55.65 dB | MaxErr=0.006884
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 411/506 [ RANDOM ] : PASS | SQNR=55.51 dB | MaxErr=0.006165
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 412/506 [ RANDOM ] : PASS | SQNR=55.71 dB | MaxErr=0.006130
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 413/506 [ RANDOM ] : PASS | SQNR=53.80 dB | MaxErr=0.006429
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 414/506 [ RANDOM ] : PASS | SQNR=53.84 dB | MaxErr=0.006493
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 415/506 [ RANDOM ] : PASS | SQNR=56.20 dB | MaxErr=0.005524
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 416/506 [ RANDOM ] : PASS | SQNR=55.04 dB | MaxErr=0.006015
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 417/506 [ RANDOM ] : PASS | SQNR=54.23 dB | MaxErr=0.005733
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 418/506 [ RANDOM ] : PASS | SQNR=55.68 dB | MaxErr=0.005893
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 419/506 [ RANDOM ] : PASS | SQNR=54.72 dB | MaxErr=0.006337
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 420/506 [ RANDOM ] : PASS | SQNR=54.34 dB | MaxErr=0.005588
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 421/506 [ RANDOM ] : PASS | SQNR=54.49 dB | MaxErr=0.006644
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 422/506 [ RANDOM ] : PASS | SQNR=54.48 dB | MaxErr=0.006124
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 423/506 [ RANDOM ] : PASS | SQNR=55.86 dB | MaxErr=0.005818
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 424/506 [ RANDOM ] : PASS | SQNR=53.74 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 425/506 [ RANDOM ] : PASS | SQNR=55.87 dB | MaxErr=0.005524
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 426/506 [ RANDOM ] : PASS | SQNR=56.04 dB | MaxErr=0.006381
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 427/506 [ RANDOM ] : PASS | SQNR=55.00 dB | MaxErr=0.006520
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 428/506 [ RANDOM ] : PASS | SQNR=54.36 dB | MaxErr=0.005645
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 429/506 [ RANDOM ] : PASS | SQNR=54.51 dB | MaxErr=0.006012
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 430/506 [ RANDOM ] : PASS | SQNR=55.62 dB | MaxErr=0.005473
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 431/506 [ RANDOM ] : PASS | SQNR=55.32 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 432/506 [ RANDOM ] : PASS | SQNR=55.38 dB | MaxErr=0.005901
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 433/506 [ RANDOM ] : PASS | SQNR=55.74 dB | MaxErr=0.006037
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 434/506 [ RANDOM ] : PASS | SQNR=53.35 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 435/506 [ RANDOM ] : PASS | SQNR=54.30 dB | MaxErr=0.006563
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 436/506 [ RANDOM ] : PASS | SQNR=55.80 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 437/506 [ RANDOM ] : PASS | SQNR=54.84 dB | MaxErr=0.006693
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 438/506 [ RANDOM ] : PASS | SQNR=54.84 dB | MaxErr=0.006426
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 439/506 [ RANDOM ] : PASS | SQNR=54.63 dB | MaxErr=0.005957
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 440/506 [ RANDOM ] : PASS | SQNR=55.45 dB | MaxErr=0.006278
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 441/506 [ RANDOM ] : PASS | SQNR=54.75 dB | MaxErr=0.006893
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 442/506 [ RANDOM ] : PASS | SQNR=54.77 dB | MaxErr=0.005846
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 443/506 [ RANDOM ] : PASS | SQNR=54.58 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 444/506 [ RANDOM ] : PASS | SQNR=54.25 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 445/506 [ RANDOM ] : PASS | SQNR=55.15 dB | MaxErr=0.005605
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 446/506 [ RANDOM ] : PASS | SQNR=55.34 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 447/506 [ RANDOM ] : PASS | SQNR=54.40 dB | MaxErr=0.005767
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 448/506 [ RANDOM ] : PASS | SQNR=55.79 dB | MaxErr=0.006361
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 449/506 [ RANDOM ] : PASS | SQNR=54.65 dB | MaxErr=0.005865
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 450/506 [ RANDOM ] : PASS | SQNR=54.18 dB | MaxErr=0.006203
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 451/506 [ RANDOM ] : PASS | SQNR=56.01 dB | MaxErr=0.005802
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 452/506 [ RANDOM ] : PASS | SQNR=55.48 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 453/506 [ RANDOM ] : PASS | SQNR=55.50 dB | MaxErr=0.005574
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 454/506 [ RANDOM ] : PASS | SQNR=55.37 dB | MaxErr=0.006273
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 455/506 [ RANDOM ] : PASS | SQNR=54.07 dB | MaxErr=0.006351
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 456/506 [ RANDOM ] : PASS | SQNR=56.37 dB | MaxErr=0.005566
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 457/506 [ RANDOM ] : PASS | SQNR=55.73 dB | MaxErr=0.005808
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 458/506 [ RANDOM ] : PASS | SQNR=54.78 dB | MaxErr=0.006037
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 459/506 [ RANDOM ] : PASS | SQNR=53.76 dB | MaxErr=0.006225
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 460/506 [ RANDOM ] : PASS | SQNR=54.78 dB | MaxErr=0.006905
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 461/506 [ RANDOM ] : PASS | SQNR=55.14 dB | MaxErr=0.005524
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 462/506 [ RANDOM ] : PASS | SQNR=53.62 dB | MaxErr=0.006209
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 463/506 [ RANDOM ] : PASS | SQNR=56.42 dB | MaxErr=0.005665
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 464/506 [ RANDOM ] : PASS | SQNR=54.61 dB | MaxErr=0.005775
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 465/506 [ RANDOM ] : PASS | SQNR=55.52 dB | MaxErr=0.005829
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 466/506 [ RANDOM ] : PASS | SQNR=54.92 dB | MaxErr=0.007042
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 467/506 [ RANDOM ] : PASS | SQNR=55.07 dB | MaxErr=0.007100
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 468/506 [ RANDOM ] : PASS | SQNR=55.05 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 469/506 [ RANDOM ] : PASS | SQNR=55.56 dB | MaxErr=0.005769
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 470/506 [ RANDOM ] : PASS | SQNR=56.41 dB | MaxErr=0.005646
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 471/506 [ RANDOM ] : PASS | SQNR=55.02 dB | MaxErr=0.007042
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 472/506 [ RANDOM ] : PASS | SQNR=54.10 dB | MaxErr=0.006205
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 473/506 [ RANDOM ] : PASS | SQNR=55.89 dB | MaxErr=0.006332
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 474/506 [ RANDOM ] : PASS | SQNR=56.09 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 475/506 [ RANDOM ] : PASS | SQNR=53.90 dB | MaxErr=0.005524
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 476/506 [ RANDOM ] : PASS | SQNR=55.16 dB | MaxErr=0.006494
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 477/506 [ RANDOM ] : PASS | SQNR=54.45 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 478/506 [ RANDOM ] : PASS | SQNR=55.83 dB | MaxErr=0.005524
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 479/506 [ RANDOM ] : PASS | SQNR=56.68 dB | MaxErr=0.005524
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 480/506 [ RANDOM ] : PASS | SQNR=55.08 dB | MaxErr=0.006833
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 481/506 [ RANDOM ] : PASS | SQNR=54.80 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 482/506 [ RANDOM ] : PASS | SQNR=54.60 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 483/506 [ RANDOM ] : PASS | SQNR=55.24 dB | MaxErr=0.005705
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 484/506 [ RANDOM ] : PASS | SQNR=54.86 dB | MaxErr=0.007086
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 485/506 [ RANDOM ] : PASS | SQNR=55.61 dB | MaxErr=0.005288
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 486/506 [ RANDOM ] : PASS | SQNR=56.63 dB | MaxErr=0.006238
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 487/506 [ RANDOM ] : PASS | SQNR=55.76 dB | MaxErr=0.006551
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 488/506 [ RANDOM ] : PASS | SQNR=54.76 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 489/506 [ RANDOM ] : PASS | SQNR=54.92 dB | MaxErr=0.006905
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 490/506 [ RANDOM ] : PASS | SQNR=56.73 dB | MaxErr=0.005550
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 491/506 [ RANDOM ] : PASS | SQNR=55.37 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 492/506 [ RANDOM ] : PASS | SQNR=55.53 dB | MaxErr=0.005658
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 493/506 [ RANDOM ] : PASS | SQNR=54.48 dB | MaxErr=0.005885
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 494/506 [ RANDOM ] : PASS | SQNR=55.65 dB | MaxErr=0.006227
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 495/506 [ RANDOM ] : PASS | SQNR=55.40 dB | MaxErr=0.006794
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 496/506 [ RANDOM ] : PASS | SQNR=55.43 dB | MaxErr=0.005958
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 497/506 [ RANDOM ] : PASS | SQNR=56.52 dB | MaxErr=0.005870
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 498/506 [ RANDOM ] : PASS | SQNR=53.15 dB | MaxErr=0.006520
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 499/506 [ RANDOM ] : PASS | SQNR=54.74 dB | MaxErr=0.006741
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 500/506 [ RANDOM ] : PASS | SQNR=55.51 dB | MaxErr=0.005591
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 501/506 [ RANDOM ] : PASS | SQNR=55.64 dB | MaxErr=0.006824
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 502/506 [ RANDOM ] : PASS | SQNR=55.73 dB | MaxErr=0.005386
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 503/506 [ RANDOM ] : PASS | SQNR=54.81 dB | MaxErr=0.005626
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 504/506 [ RANDOM ] : PASS | SQNR=54.18 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 505/506 [ RANDOM ] : PASS | SQNR=55.06 dB | MaxErr=0.006253
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Transaction 506/506 [ RANDOM ] : PASS | SQNR=54.76 dB | MaxErr=0.006338
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 ==========================================================================================
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 FUNCTIONAL COVERAGE REPORT
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 ==========================================================================================
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Input RE value bins : {'neg_max': 2036, 'neg_mid': 2029, 'zero': 25, 'pos_mid': 1971, 'pos_max': 2035}
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Input IM value bins : {'neg_max': 2050, 'neg_mid': 1984, 'zero': 31, 'pos_mid': 1949, 'pos_max': 2082}
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Corner cases hit    : {'re_min': True, 're_max': True, 're_zero': True, 'im_min': True, 'im_max': True, 'im_zero': True}
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 SQNR distribution   : {'<20dB': 0, '20-30dB': 0, '30-40dB': 0, '>40dB': 506}
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 RE bin coverage     : 5/5 (100.0%)
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 IM bin coverage     : 5/5 (100.0%)
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Corner coverage     : 6/6 (100.0%)
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Overall coverage    : 16/16 (100.0%)
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 ==========================================================================================
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 FINAL REPORT
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 ==========================================================================================
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Total transactions : 506 (6 directed + 500 random)
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Passed             : 506
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Failed             : 0
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Mean SQNR          : 55.20 dB
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Worst-case SQNR    : 52.71 dB
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Max Abs Error      : 0.011049
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Functional Coverage: 100.0%
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 Overall Result     : PASS
+ 81181.00ns INFO     cocotb.FFT_2_2_top                 ==========================================================================================
