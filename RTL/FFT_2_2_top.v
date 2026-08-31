@@ -41,8 +41,6 @@ module FFT_2_2_top (
     // synch_counter
     wire [3:0] cnt;
 
-    // FIX 1: Drive counter enable with pipe_en so it only continues
-    // to advance the commutator switches during the flush phase.
     sync_counter #(
         .WIDTH(4)
     ) u_sync_counter (
@@ -58,9 +56,6 @@ module FFT_2_2_top (
     wire b1 = cnt[1];
     wire b0 = cnt[0];
 
-    // --- NEW: Delay matching registers for post-multiplier stages ---
-    // These registers delay b1 and b0 by 1 clock cycle so they arrive 
-    // at STAGE 3 and STAGE 4 at the exact same time as the delayed data.
     reg b1_d;
     reg b0_d;
 
