@@ -189,20 +189,7 @@ simulation source (plus any `.vh` golden-vector include file), then
 
 ---
 
-## 6. Known issues / in progress
-
-- **Valid-sample count mismatch during stream flush**: in the extended
-  multi-frame randomized test, `y_valid` currently pulses **one fewer** time than
-  `x_valid` over a full run (e.g. 47 vs. 48 for a 3-frame test) — one output sample
-  is being dropped somewhere in the `control_unit` / `pipe_en` interaction during
-  the tail-end flush after the input stream stops. Under active debugging via
-  cycle-by-cycle signal tracing; not yet root-caused. **Does not affect** the
-  steady-state, continuously-streaming portion of the pipeline (verified correct
-  above) — only the very last sample(s) at stream shutdown.
-
----
-
-## 7. Bugs found & fixed during development
+## 6. Bugs found & fixed during development
 
 - **`BF_2` trivial rotation sign error**: an early version applied `-j` where `+j`
   was required (comment vs. code mismatch), causing correct results only in the
@@ -218,7 +205,7 @@ simulation source (plus any `.vh` golden-vector include file), then
 
 ---
 
-## 8. References
+## 7. References
 
 1. S. He, M. Torkelson, *"A New Approach to Pipeline FFT Processor,"* Proc. IPPS'96,
    pp. 766–770.
