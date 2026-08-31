@@ -69,7 +69,6 @@ architectures (R2MDC, R2SDF, R4SDF, R4MDC, R4SDC) compared in the paper's Table 
 └── tb/
     ├── tb_cplx_multiplier.v       Directed unit test for the multiplier
     ├── tb_FFT_2_2_top.v           Single-frame integration test vs. golden reference
-    ├── golden_vectors.vh          Auto-generated (Python) fixed-point golden data
     └── tb_random.sv               Multi-frame (1000x) randomized regression test
 ```
 
